@@ -1,0 +1,81 @@
+.center {
+text-align: center;
+}
+.w-60{
+    width: 60%;
+
+}
+.mt{
+    margin-top: 1rem;
+}
+.mb{
+    margin-bottom: 1rem;
+}
+.w-50{
+    width: 50;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mb-5px{
+    margin-bottom: 5px !important;
+}
+
+.m-0{
+    margin: 0 auto 0 auto;
+}
+.mb-0{
+    margin-bottom: 0 !important;
+}
+.mt-0{
+    margin-top: 0 !important;
+}
+.mt-5px{
+    margin-top: 5px !important;
+}
+
+.jumbotron{
+    padding: 1rem 1rem !important;
+    background-color: #ecfbfc !important;
+    }
+
+.h{
+ color: #900c3f !important;
+}
+
+.height-600px{
+    height: 30.5rem;
+    width: 100% !important;
+}
+
+.box{
+    position: absolute;
+    left: 30rem;
+    
+}
+.form-control{
+    width: 30% !important;
+    display: inline-block !important;
+}
+
+.padding-left{
+    padding-left: 2rem !important;
+}
+.mt-7{
+    margin-top: .4rem;
+}
+
+hr{
+    margin-top: 0;
+}
+.table{
+    margin-bottom: 0 !important;
+}
+.mr{
+    margin-right: 1rem;
+}
+
+.card_height{
+    height: 18.75rem;
+}
+
