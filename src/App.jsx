@@ -4,6 +4,7 @@ import Index from "./pages/Index.jsx";
 import Signup from "./pages/signup";
 import Congo from "./pages/congo";
 import Home from "./pages/home";
+import Admin from "./pages/admin";
 function App(){
     
     return(
@@ -15,6 +16,7 @@ function App(){
                 <Route  path="/signup/plan" component={Signup} />
                 <Route path="/success" component={Congo} />
                 <Route path="/home" component={Home} />
+                <Route path="/admin" component={Admin} />
                 
         </div>
     );

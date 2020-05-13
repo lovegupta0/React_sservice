@@ -14,7 +14,7 @@ function Signup(props){
    
     return(
         <div>
-            <Navbar>
+            <Navbar herf="/">
                 <Login />
             </Navbar>
             <Jumbotron>

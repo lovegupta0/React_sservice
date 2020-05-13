@@ -6,8 +6,9 @@ import axios from "axios";
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import {setCurrentUser} from "../redux/user/user_action";
+import {setUserData,setTitle} from "../redux/data_redux/data_action";
 
-function Login({setCurrentUser}){
+function Login({setCurrentUser,setUserData,setTitle}){
     let history=useHistory();
     const [show, setShow] = useState(false);
 
@@ -35,13 +36,27 @@ function Login({setCurrentUser}){
    
 
     function handleSubmit(event){
-        setCurrentUser(login);
+        
         axios.post("/login",login,{crossDomain: true})
           .then(function (response) {
-            if(response.data==="sucess"){
+            if(response.data.status==="sucess"){
+                setCurrentUser(response.data);
                 setstatus("");
+                axios.get("/api/getData",{crossDomain:true})
+                .then(function(response){
+                    setTitle(response.data[0])
+                    setUserData(response.data[1]);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+
                 history.push("/home");
 
+            }
+            else if(response.data.status==="admin"){
+                setCurrentUser(response.data);
+                history.push("/admin");
             }
             else{
                 setstatus("is-invalid");
@@ -97,7 +112,9 @@ function Login({setCurrentUser}){
 }
 
 const mapDispatchToprops=dispatch=>({
-    setCurrentUser:user=>dispatch(setCurrentUser(user))
+    setCurrentUser:user=>dispatch(setCurrentUser(user)),
+    setUserData:userData=>dispatch(setUserData(userData)),
+    setTitle:title=>dispatch(setTitle(title))
 });
 
 export default connect(

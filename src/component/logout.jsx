@@ -1,5 +1,4 @@
 import React from "react";
-import {Button} from "react-bootstrap";
 import {useHistory} from "react-router-dom";
 import axios from "axios";
 
@@ -22,7 +21,7 @@ function Logout(){
     }
 
     return(
-        <Button variant="outline-primary" onClick={handleClick}>Logout</Button>
+        <h6 onClick={handleClick}>Logout</h6>
     )
 
 }
