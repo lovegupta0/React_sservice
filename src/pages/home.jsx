@@ -25,11 +25,11 @@ function Home({allData,userData,title,caroData}){
 
     function setting(val,arr){
         var y=[];
-        if(val<=allData.length){
+       
         for(var i=0;i<val;i++){
             y[i]=arr[i];
         }
-        }
+        
         if(act!==allData.length){
             setArr(y);
         }
@@ -41,7 +41,16 @@ function Home({allData,userData,title,caroData}){
        scrollable=document.documentElement.scrollHeight -window.innerHeight;
       if(Math.ceil(lastScrollY)===scrollable){
           if(a<allData.length){
-              a=a+6;
+              if(allData.length-a>=6){
+                a=a+6;
+              }
+              else if(allData.length-a<=6){
+                  a=allData.length;
+              }
+              else{
+                  a=-1;
+              }
+              
           }
           else if(act){
               return;
@@ -50,7 +59,10 @@ function Home({allData,userData,title,caroData}){
               a=allData.length;
               setAct(a);
           }
-         setting(a,allData);
+          if(a!==-1){
+            setting(a,allData);
+          }
+         
         
       }
 
@@ -61,8 +73,6 @@ function Home({allData,userData,title,caroData}){
         x=x+1
         return(x);
     }
-    console.log(caroData);
-    
     var filterData=allData.filter(data=>data.filename.toLowerCase().includes(search.toLowerCase()));
 
     return(
@@ -100,7 +110,7 @@ function Home({allData,userData,title,caroData}){
                                 
                                 {userData.map(function(data){
                                     return(
-                                        <Card key={data._id} _id={data._id} img={data.img} url={data.media_url} />
+                                        <Card key={data._id} img={data.img} url={data.media_url} />
                                     )
                                 })}
                             </div>
@@ -112,7 +122,7 @@ function Home({allData,userData,title,caroData}){
                         <h5 className="mb-0" style={{marginTop:"1rem"}}>Latest Movies</h5>
                         <hr/>
                     <div className="row">
-                    {arr.map((data)=>(<Card key={data._id} _id={data._id} img={data.img} url={data.media_url} />))}
+                    {arr.map((data)=>(<Card key={data._id} img={data.img} url={data.media_url} />))}
                     </div>
                     </div>
                     :null}

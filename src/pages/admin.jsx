@@ -31,7 +31,7 @@ const Admin=({allData})=>{
             var found=allData.find(data=>data._id===caro[i]);
             arr.push(found);
         }
-        axios.post("/api/setCaro",arr,{crossDomain:true}).then((res)=>(console.log(res.data)
+        axios.post("/api/setCaro",arr,{crossDomain:true}).then((res)=>(console.log("null")
         ));
         setCaro([]);
         axios.get("/api/getCaro",{crossDomain:true})
